@@ -547,7 +547,7 @@ class GSSAPIMechanism(Mechanism):
 
     def wrap(self, outgoing):
         if self.qop != QOP.AUTH:
-            outgoing = base64.b64encode(outgoing)
+            outgoing = base64.b64encode(outgoing).decode('ascii')
             if self.qop == QOP.AUTH_CONF:
                 protect = 1
             else:
